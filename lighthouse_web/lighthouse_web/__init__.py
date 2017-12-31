@@ -1,1 +1,1 @@
-from .lighthouse-web import app
+from .lighthouse_web import app

@@ -17,11 +17,11 @@
 
       2. install the app from the root of the project directory
 
-         pip install --editable .
+         sudo pip install --editable .
 
       3. instruct flask to use the right application
 
-         export LIGHTHOUSE_APP="lighthouse_web.factory:create_app()"
+         export FLASK_APP="lighthouse_web.factory:create_app()"
 
       4. initialize the database with this command:
 
