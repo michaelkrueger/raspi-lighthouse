@@ -1,0 +1,3 @@
+graft lighthouse-web/templates
+graft lighthouse-web/static
+include lighthouse-web/schema.sql

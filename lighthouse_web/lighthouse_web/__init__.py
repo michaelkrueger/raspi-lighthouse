@@ -1,0 +1,1 @@
+from .lighthouse-web import app
