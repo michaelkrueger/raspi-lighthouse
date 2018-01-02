@@ -8,6 +8,8 @@ app.config.from_object(__name__) # load config from this file , lighthouse-web.p
 
 app.config.from_envvar('LIGHTHOUSE_SETTINGS', silent=True)
 
+neopixel = new Neopixel
+
 @app.route('/')
 def show_entries():
     return render_template('index.html')
@@ -20,6 +22,17 @@ def set():
     op = request.form['op']
     color = request.form['color']
 
+	if op == 'aus':
+	    neopixel.colorWipe(Color(0, 0, 0))
+	elif op == 'zeile1':
+	    neopixel.zeile_1(color)
+	elif op == 'zeile1':
+	    neopixel.zeile_2(color)
+	elif op == 'zeile1':
+	    neopixel.zeile_3(color)
+	else
+		neopixel.test
+		
     flash('New entry was successfully posted')
     return redirect(url_for('show_entries'))
 
