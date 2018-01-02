@@ -48,7 +48,7 @@ class Neopixel:
   # Define functions which animate LEDs in various ways.
   def colorWipe(color, range = range(strip.numPixels()), wait_ms=50):
     """Wipe color across display a pixel at a time."""
-    for i in range):
+    for i in range:
         self.strip.setPixelColor(i, color)
         self.strip.show()
         time.sleep(wait_ms/1000.0)
