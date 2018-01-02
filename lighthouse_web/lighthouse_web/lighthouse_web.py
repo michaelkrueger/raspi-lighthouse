@@ -31,7 +31,7 @@ def set():
         neopixel.zeile_2(color)
     elif op == 'zeile3':
         neopixel.zeile_3(color)
-    else
+    else:
         neopixel.test
         
     flash('New entry was successfully posted')
