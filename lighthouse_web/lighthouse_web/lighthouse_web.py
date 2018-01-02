@@ -8,7 +8,7 @@ app.config.from_object(__name__) # load config from this file , lighthouse-web.p
 
 app.config.from_envvar('LIGHTHOUSE_SETTINGS', silent=True)
 
-neopixel = new Neopixel
+neopixel = new Neopixel()
 
 @app.route('/')
 def show_entries():
