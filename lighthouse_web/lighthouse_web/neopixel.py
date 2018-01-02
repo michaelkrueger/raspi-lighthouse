@@ -20,22 +20,22 @@ class Neopixel:
   LED_STRIP      = ws.WS2811_STRIP_GRB   # Strip type and colour ordering
 
 
-  def __init__()
+  def __init__():
     # Create NeoPixel object with appropriate configuration.
     self.strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
     # Intialize the library (must be called once before other functions).
     self.strip.begin()
   
-  def zeile_1(color)
+  def zeile_1(color):
     colorWipe(color, range(0,15), 5)
 	
-  def zeile_2(color)
+  def zeile_2(color):
     colorWipe(color, range(16,30), 5)
 	
-  def zeile_3(color)
+  def zeile_3(color):
     colorWipe(color, range(31,45), 5)
 	
-  def test()
+  def test():
     print ('Theater chase animations.')
     theaterChase(strip, Color(127, 127, 127))  # White theater chase
     theaterChase(strip, Color(127,   0,   0))  # Red theater chase
