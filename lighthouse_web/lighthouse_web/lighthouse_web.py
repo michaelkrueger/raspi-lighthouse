@@ -13,30 +13,30 @@ neopixel = new Neopixel()
 @app.route('/')
 def show_entries():
     return render_template('index.html')
-	
+    
 @app.route('/set', methods=['POST'])
 def set():
 #    if not session.get('logged_in'):
 #        abort(401)
 
     op = request.form['op']
-    color = request.form['color']
+    color  = new Color(request.form['color'])
 
-	if op == 'aus':
-	    neopixel.colorWipe(Color(0, 0, 0))
-	elif op == 'zeile1':
-	    neopixel.zeile_1(color)
-	elif op == 'zeile1':
-	    neopixel.zeile_2(color)
-	elif op == 'zeile1':
-	    neopixel.zeile_3(color)
-	else
-		neopixel.test
-		
+    if op == 'aus':
+        neopixel.colorWipe(Color(0, 0, 0))
+    elif op == 'zeile1':
+        neopixel.zeile_1(color)
+    elif op == 'zeile2':
+        neopixel.zeile_2(color)
+    elif op == 'zeile3':
+        neopixel.zeile_3(color)
+    else
+        neopixel.test
+        
     flash('New entry was successfully posted')
     return redirect(url_for('show_entries'))
 
-	
+    
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
@@ -50,7 +50,7 @@ def login():
             flash('You were logged in')
             return redirect(url_for('show_entries'))
     return render_template('login.html', error=error)
-	
+    
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
