@@ -8,18 +8,18 @@ app.config.from_object(__name__) # load config from this file , lighthouse-web.p
 
 app.config.from_envvar('LIGHTHOUSE_SETTINGS', silent=True)
 
-
 @app.route('/')
 def show_entries():
     return render_template('index.html')
 	
 @app.route('/set', methods=['POST'])
 def set():
-    if not session.get('logged_in'):
-        abort(401)
+#    if not session.get('logged_in'):
+#        abort(401)
+
     op = request.form['op']
-	color = request.form['color']
-	
+    color = request.form['color']
+
     flash('New entry was successfully posted')
     return redirect(url_for('show_entries'))
 
