@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+    <form action="{{ url_for('set') }}" method=post class=set>
+      <dl>
+        <dt>Operation:
+        <dd><input type=text size=30 name=op></dd>
+        <dd><select name=op >
+				<option>aus</option>
+				<option>theater</option>
+				<option>zeile1</option>
+				<option>zeile2</option>
+				<option>zeile3</option>
+			</select></dd>
+        <dt>Color:</dt>
+        <dd><input type=color value=Set name=color></dd>
+        <dd><input type=submit value=Set></dd>
+      </dl>
+    </form>
+  {% endif %}
+{% endblock %}

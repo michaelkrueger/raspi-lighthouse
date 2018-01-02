@@ -21,18 +21,18 @@
 
       3. instruct flask to use the right application
 
-         export FLASK_APP="lighthouse_web.factory:create_app()"
+         export FLASK_APP="lighthouse_web"
 
       4. initialize the database with this command:
 
-         flask initdb
+         --flask initdb--
 
       5. now you can run flaskr:
 
-         flask run
+         flask run --host=0.0.0.0
 
          the application will greet you on
-         http://localhost:5000/
+         http://raspberrypi:5000/
 
     ~ Is it tested?
 
