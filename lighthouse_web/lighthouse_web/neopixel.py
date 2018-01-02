@@ -1,6 +1,7 @@
 import time
 
 from neopixel import *
+from rpi-ws281x import *
 
 import argparse
 import signal
