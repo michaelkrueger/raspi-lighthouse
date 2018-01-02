@@ -9,7 +9,7 @@ app.config.from_object(__name__) # load config from this file , lighthouse-web.p
 
 app.config.from_envvar('LIGHTHOUSE_SETTINGS', silent=True)
 
-neopixel = new Neopixel()
+neopixel = Neopixel()
 
 @app.route('/')
 def show_entries():
@@ -21,7 +21,7 @@ def set():
 #        abort(401)
 
     op = request.form['op']
-    color  = new Color(request.form['color'])
+    color  = Color(request.form['color'])
 
     if op == 'aus':
         neopixel.colorWipe(Color(0, 0, 0))

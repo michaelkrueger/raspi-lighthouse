@@ -7,7 +7,7 @@ import signal
 import sys
 
 
-class Neopixel
+class Neopixel:
 
   # LED strip configuration:
   LED_COUNT      = 45      # Number of LED pixels.
