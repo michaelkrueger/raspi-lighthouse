@@ -1,7 +1,6 @@
 import time
 
 from neopixel import *
-import Adafruit_NeoPixel
 
 import argparse
 import signal
