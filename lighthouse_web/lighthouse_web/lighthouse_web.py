@@ -1,6 +1,6 @@
 # all the imports
 import os
-import neopixel
+import strip
 
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 
@@ -9,7 +9,7 @@ app.config.from_object(__name__) # load config from this file , lighthouse-web.p
 
 app.config.from_envvar('LIGHTHOUSE_SETTINGS', silent=True)
 
-neopixel = Neopixel()
+strip = Strip()
 
 @app.route('/')
 def show_entries():
@@ -24,15 +24,15 @@ def set():
     color  = Color(request.form['color'])
 
     if op == 'aus':
-        neopixel.colorWipe(Color(0, 0, 0))
+        strip.colorWipe(Color(0, 0, 0))
     elif op == 'zeile1':
-        neopixel.zeile_1(color)
+        strip.zeile_1(color)
     elif op == 'zeile2':
-        neopixel.zeile_2(color)
+        strip.zeile_2(color)
     elif op == 'zeile3':
-        neopixel.zeile_3(color)
+        strip.zeile_3(color)
     else:
-        neopixel.test
+        strip.test
         
     flash('New entry was successfully posted')
     return redirect(url_for('show_entries'))
