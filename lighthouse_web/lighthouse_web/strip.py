@@ -47,7 +47,7 @@ class Strip:
     theaterChaseRainbow(self.strip)
 	
   # Define functions which animate LEDs in various ways.
-  def colorWipe(color, range = range(self.strip.numPixels()), wait_ms=50):
+  def colorWipe(color, range = range(LED_COUNT), wait_ms=50):
     """Wipe color across display a pixel at a time."""
     for i in range:
         self.strip.setPixelColor(i, color)
