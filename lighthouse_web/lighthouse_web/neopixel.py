@@ -1,7 +1,7 @@
 import time
 
 from neopixel import *
-import rpi-ws281x
+import Adafruit_NeoPixel
 
 import argparse
 import signal
