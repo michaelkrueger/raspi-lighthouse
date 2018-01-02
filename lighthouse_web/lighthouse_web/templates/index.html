@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
 {% block body %}
-  {% if session.logged_in %}
     <form action="{{ url_for('set') }}" method=post class=set>
       <dl>
         <dt>Operation:
@@ -17,5 +16,4 @@
         <dd><input type=submit value=Set></dd>
       </dl>
     </form>
-  {% endif %}
 {% endblock %}
