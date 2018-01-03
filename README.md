@@ -18,6 +18,8 @@ A raspi-lightpanel that is controlled by a webserver written in python.
     * apt-get update && apt-get install python-pip
   - Python Flask Framework as a Webserver
     * http://flask.pocoo.org/docs/0.12/tutorial/#tutorial
+  - Create a symbolic link to neopixel.py in lighthouse_web/lighthouse_web
+    * ln -s ../../../rpi_ws281x/python/neopixel.py .
 	
 	
   

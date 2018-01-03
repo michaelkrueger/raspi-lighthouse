@@ -1,15 +1,16 @@
 # all the imports
 import os
-import strip
 
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
+
+import strip
 
 app = Flask(__name__) # create the application instance :)
 app.config.from_object(__name__) # load config from this file , lighthouse-web.py
 
 app.config.from_envvar('LIGHTHOUSE_SETTINGS', silent=True)
 
-strip = Strip()
+strip = Strip
 
 @app.route('/')
 def show_entries():
@@ -32,7 +33,7 @@ def set():
     elif op == 'zeile3':
         strip.zeile_3(color)
     else:
-        strip.test
+        strip.test()
         
     flash('New entry was successfully posted')
     return redirect(url_for('show_entries'))
