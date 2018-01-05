@@ -69,15 +69,15 @@ class Lighthouse(object):
         
     def zeile_1(self, color):
         print "Zeile1"
-        self.colorWipe(color, range(0,15), 0)
+        self.colorWipe(color, range(0,16), 0)
         
     def zeile_2(self, color):
         print "Zeile2"
-        self.colorWipe(color, range(16,30),0)
+        self.colorWipe(color, range(16,31),0)
         
     def zeile_3(self, color):
         print "Zeile3"
-        self.colorWipe(color, range(31,45),0)
+        self.colorWipe(color, range(31,46),0)
         
     def colorWipe(self, color, leds = range(LED_COUNT), wait_ms=50):
         print "Colorwipe: %s %s", color, leds
