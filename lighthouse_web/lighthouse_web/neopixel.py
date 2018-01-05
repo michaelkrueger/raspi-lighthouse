@@ -61,7 +61,8 @@ class _LED_Data(object):
 class Lighthouse(object):
 
     def __init__(self):
-
+        print "INIT"
+		
     def zeile_1(self, color):
         print "Zeile1"
         self.colorWipe(color, range(0,15), 0)
