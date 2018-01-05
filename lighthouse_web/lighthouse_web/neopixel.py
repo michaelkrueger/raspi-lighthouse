@@ -80,7 +80,7 @@ class Lighthouse(object):
     # Define functions which animate LEDs in various ways.
     def colorWipe(self, color, leds = range(LED_COUNT), wait_ms=50):
         """Wipe color across display a pixel at a time."""
-        for i in leds):
+        for i in leds:
             self.strip.setPixelColor(i, color)
             self.strip.show()
             time.sleep(wait_ms/1000.0)
