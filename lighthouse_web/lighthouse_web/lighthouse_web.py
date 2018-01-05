@@ -3,14 +3,14 @@ import os
 
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 
-import strip
+import neopixel
 
 app = Flask(__name__) # create the application instance :)
 app.config.from_object(__name__) # load config from this file , lighthouse-web.py
 
 app.config.from_envvar('LIGHTHOUSE_SETTINGS', silent=True)
 
-strip = Strip
+lighthouse = Lighthouse()
 
 @app.route('/')
 def show_entries():
@@ -25,15 +25,15 @@ def set():
     color  = Color(request.form['color'])
 
     if op == 'aus':
-        strip.colorWipe(Color(0, 0, 0))
+        lighthouse.colorWipe(Color(0, 0, 0))
     elif op == 'zeile1':
-        strip.zeile_1(color)
+        lighthouse.zeile_1(color)
     elif op == 'zeile2':
-        strip.zeile_2(color)
+        lighthouse.zeile_2(color)
     elif op == 'zeile3':
-        strip.zeile_3(color)
+        lighthouse.zeile_3(color)
     else:
-        strip.test()
+        lighthouse.test()
         
     flash('New entry was successfully posted')
     return redirect(url_for('show_entries'))
