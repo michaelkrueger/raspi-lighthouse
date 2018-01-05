@@ -59,9 +59,9 @@ class _LED_Data(object):
             return ws.ws2811_led_set(self.channel, pos, value)
 
 class Lighthouse(object):
-	def __init__(self):
+    def __init__(self):
 
-	def zeile_1(self, color):
+    def zeile_1(self, color):
         print "Zeile1"
         
     def zeile_2(self, color):
@@ -69,10 +69,10 @@ class Lighthouse(object):
         
     def zeile_3(self, color):
         print "Zeile3"
-		
-	def test(self):
-		print "Test"
-			
+        
+    def test(self):
+        print "Test"
+            
 class neo_Lighthouse(object):
 
     def __init__(self):
