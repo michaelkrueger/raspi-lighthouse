@@ -22,7 +22,7 @@ def set():
 #        abort(401)
 
     op = request.form['op']
-    color  = Color(request.form['color'])
+    color  = request.form['color']
     
     print "Op: %s - Color %s", op, color
     
