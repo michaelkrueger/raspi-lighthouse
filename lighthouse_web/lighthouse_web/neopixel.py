@@ -59,16 +59,23 @@ class _LED_Data(object):
             return ws.ws2811_led_set(self.channel, pos, value)
 
 class Lighthouse(object):
+
     def __init__(self):
 
     def zeile_1(self, color):
         print "Zeile1"
+        self.colorWipe(color, range(0,15), 0)
         
     def zeile_2(self, color):
         print "Zeile2"
+        self.colorWipe(color, range(16,30),0)
         
     def zeile_3(self, color):
         print "Zeile3"
+        self.colorWipe(color, range(31,45),0)
+        
+    def colorWipe(self, color, leds = range(LED_COUNT), wait_ms=50):
+        print "Colorwipe: %s %s", color, leds
         
     def test(self):
         print "Test"
@@ -83,13 +90,13 @@ class neo_Lighthouse(object):
         self.strip._cleanup()
     
     def zeile_1(self, color):
-        self.strip.colorWipe(color, range(0,15), 0)
+        self.colorWipe(color, range(0,15), 0)
         
     def zeile_2(self, color):
-        self.strip.colorWipe(color, range(16,30),0)
+        self.colorWipe(color, range(16,30),0)
         
     def zeile_3(self, color):
-        self.strip.colorWipe(color, range(31,45),0)
+        self.colorWipe(color, range(31,45),0)
         
     # Define functions which animate LEDs in various ways.
     def colorWipe(self, color, leds = range(LED_COUNT), wait_ms=50):
