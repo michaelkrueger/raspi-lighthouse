@@ -37,7 +37,7 @@ def set():
     else:
         lighthouse.test()
         
-    flash('New entry was successfully posted')
+    print 'New entry was successfully posted'
     return redirect(url_for('show_entries'))
 
     
