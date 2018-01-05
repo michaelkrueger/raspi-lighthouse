@@ -23,9 +23,9 @@ def set():
 
     op = request.form['op']
     color  = Color(request.form['color'])
-	
-	print "Op: %s - Color %s", op, color
-	
+    
+    print "Op: %s - Color %s", op, color
+    
     if op == 'aus':
         lighthouse.colorWipe(Color(0, 0, 0))
     elif op == 'zeile1':
