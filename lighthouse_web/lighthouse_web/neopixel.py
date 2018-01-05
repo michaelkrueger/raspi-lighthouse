@@ -50,16 +50,16 @@ class _LED_Data(object):
 
 class Lighthouse(object):
 
-# LED strip configuration:
-LED_COUNT      = 45      # Number of LED pixels.
-LED_PIN        = 18      # GPIO pin connected to the pixels (18 uses PWM!).
-#LED_PIN        = 10      # GPIO pin connected to the pixels (10 uses SPI /dev/spidev0.0).
-LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
-LED_DMA        = 10      # DMA channel to use for generating signal (try 10)
-LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
-LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
-LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
-LED_STRIP      = ws.WS2811_STRIP_GRB   # Strip type and colour ordering
+    # LED strip configuration:
+    LED_COUNT      = 45      # Number of LED pixels.
+    LED_PIN        = 18      # GPIO pin connected to the pixels (18 uses PWM!).
+    #LED_PIN        = 10      # GPIO pin connected to the pixels (10 uses SPI /dev/spidev0.0).
+    LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
+    LED_DMA        = 10      # DMA channel to use for generating signal (try 10)
+    LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
+    LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
+    LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
+    LED_STRIP      = ws.WS2811_STRIP_GRB   # Strip type and colour ordering
 
     def __init__(self):
         self.strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
@@ -67,15 +67,15 @@ LED_STRIP      = ws.WS2811_STRIP_GRB   # Strip type and colour ordering
     
     def stop(self):
         self.strip._cleanup()
-	
-	def zeile_1(self, color):
-	    self.strip.colorWipe(color, range(0,15), 0)
-		
-	def zeile_2(self, color):
-	    self.strip.colorWipe(color, range(16,30),0)
-		
-	def zeile_3(self, color):
-	    self.strip.colorWipe(color, range(31,45),0)
+    
+    def zeile_1(self, color):
+        self.strip.colorWipe(color, range(0,15), 0)
+        
+    def zeile_2(self, color):
+        self.strip.colorWipe(color, range(16,30),0)
+        
+    def zeile_3(self, color):
+        self.strip.colorWipe(color, range(31,45),0)
         
     # Define functions which animate LEDs in various ways.
     def colorWipe(self, color, leds = range(LED_COUNT), wait_ms=50):
