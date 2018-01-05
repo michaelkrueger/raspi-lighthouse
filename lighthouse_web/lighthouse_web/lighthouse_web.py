@@ -29,11 +29,11 @@ def set():
     if op == 'aus':
         lighthouse.colorWipe(Color(0, 0, 0))
     elif op == 'zeile1':
-        lighthouse.zeile_1(color)
+        lighthouse.zeile_1(HexColor(color))
     elif op == 'zeile2':
-        lighthouse.zeile_2(color)
+        lighthouse.zeile_2(HexColor(color))
     elif op == 'zeile3':
-        lighthouse.zeile_3(color)
+        lighthouse.zeile_3(HexColor(color))
     else:
         lighthouse.test()
         

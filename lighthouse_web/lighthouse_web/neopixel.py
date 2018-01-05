@@ -22,6 +22,10 @@ def Color(red, green, blue, white = 0):
     """
     return (white << 24) | (red << 16)| (green << 8) | blue
 
+def HexColor(h):
+    h = h.lstrip('#')
+    array = tuple(int(h[i:i+2], 16) for i in (0, 2 ,4))
+    return Color(array[0],array[1],array[2])
 
 class _LED_Data(object):
     """Wrapper class which makes a SWIG LED color data array look and feel like
@@ -62,7 +66,7 @@ class Lighthouse(object):
 
     def __init__(self):
         print "INIT"
-		
+        
     def zeile_1(self, color):
         print "Zeile1"
         self.colorWipe(color, range(0,15), 0)
