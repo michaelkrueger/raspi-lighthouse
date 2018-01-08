@@ -27,7 +27,7 @@ def set():
     print "Op: %s - Color %s", op, color
     
     if op == 'aus':
-        lighthouse.colorWipe(Color(0, 0, 0))
+        lighthouse.colorWipe(Color(0, 0, 0), ALL)
     elif op == 'zeile1':
         lighthouse.zeile_1(HexColor(color))
     elif op == 'zeile2':
