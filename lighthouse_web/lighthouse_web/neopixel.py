@@ -16,6 +16,11 @@ LED_INVERT     = False   # True to invert the signal (when using NPN transistor 
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 LED_STRIP      = ws.WS2811_STRIP_GRB   # Strip type and colour ordering
 
+ALL  =  range(0,45)
+ZEILE1 = range(0,15)
+ZEILE2 = range(15,30)
+ZEILE3 = range(30,45)
+
 def Color(red, green, blue, white = 0):
     """Convert the provided red, green, blue color to a 24-bit color value.
     Each color component should be a value 0-255 where 0 is the lowest intensity
@@ -80,7 +85,7 @@ class test_Lighthouse(object):
         print "Zeile3"
         self.colorWipe(color, range(30,45),0)
         
-    def colorWipe(self, color, leds = range(LED_COUNT), wait_ms=50):
+    def colorWipe(self, color, leds, wait_ms=50):
         print "Colorwipe: %s %s", color, leds
         
     def test(self):
@@ -96,16 +101,16 @@ class Lighthouse(object):
         self.strip._cleanup()
     
     def zeile_1(self, color):
-        self.colorWipe(color, range(0,15), 0)
+        self.colorWipe(color, ZEILE1, 0)
         
     def zeile_2(self, color):
-        self.colorWipe(color, range(16,30),0)
+        self.colorWipe(color, ZEILE2, 0)
         
     def zeile_3(self, color):
-        self.colorWipe(color, range(31,45),0)
+        self.colorWipe(color, ZEILE3, 0)
         
     # Define functions which animate LEDs in various ways.
-    def colorWipe(self, color, leds = range(LED_COUNT), wait_ms=50):
+    def colorWipe(self, color, leds, wait_ms=50):
         """Wipe color across display a pixel at a time."""
         for i in leds:
             self.strip.setPixelColor(i, color)
@@ -163,9 +168,9 @@ class Lighthouse(object):
 
     def test(self):
         print ('Color wipe animations.')
-        self.colorWipe(self.strip, Color(255, 0, 0))  # Red wipe
-        self.colorWipe(self.strip, Color(0, 255, 0))  # Blue wipe
-        self.colorWipe(self.strip, Color(0, 0, 255))  # Green wipe
+        self.colorWipe(self.strip, ALL, Color(255, 0, 0))  # Red wipe
+        self.colorWipe(self.strip, ALL, Color(0, 255, 0))  # Blue wipe
+        self.colorWipe(self.strip, ALL, Color(0, 0, 255))  # Green wipe
         print ('Theater chase animations.')
         self.theaterChase(self.strip, Color(127, 127, 127))  # White theater chase
         self.theaterChase(self.strip, Color(127,   0,   0))  # Red theater chase
