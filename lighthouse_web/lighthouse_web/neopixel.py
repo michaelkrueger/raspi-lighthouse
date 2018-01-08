@@ -162,17 +162,17 @@ class Lighthouse(object):
 
     def test(self):
         print ('Color wipe animations.')
-        colorWipe(self.strip, Color(255, 0, 0))  # Red wipe
-        colorWipe(self.strip, Color(0, 255, 0))  # Blue wipe
-        colorWipe(self.strip, Color(0, 0, 255))  # Green wipe
+        self.colorWipe(self.strip, Color(255, 0, 0))  # Red wipe
+        self.colorWipe(self.strip, Color(0, 255, 0))  # Blue wipe
+        self.colorWipe(self.strip, Color(0, 0, 255))  # Green wipe
         print ('Theater chase animations.')
-        theaterChase(self.strip, Color(127, 127, 127))  # White theater chase
-        theaterChase(self.strip, Color(127,   0,   0))  # Red theater chase
-        theaterChase(self.strip, Color(  0,   0, 127))  # Blue theater chase
+        self.theaterChase(self.strip, Color(127, 127, 127))  # White theater chase
+        self.theaterChase(self.strip, Color(127,   0,   0))  # Red theater chase
+        self.theaterChase(self.strip, Color(  0,   0, 127))  # Blue theater chase
         print ('Rainbow animations.')
-        rainbow(self.strip)
-        rainbowCycle(self.strip)
-        theaterChaseRainbow(self.strip)
+        self.rainbow(self.strip)
+        self.rainbowCycle(self.strip)
+        self.theaterChaseRainbow(self.strip)
         
     
 class Adafruit_NeoPixel(object):
