@@ -62,7 +62,7 @@ class _LED_Data(object):
         else:
             return ws.ws2811_led_set(self.channel, pos, value)
 
-class Lighthouse(object):
+class test_Lighthouse(object):
 
     def __init__(self):
         print "INIT"
@@ -85,7 +85,7 @@ class Lighthouse(object):
     def test(self):
         print "Test"
             
-class neo_Lighthouse(object):
+class Lighthouse(object):
 
     def __init__(self):
         self.strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
