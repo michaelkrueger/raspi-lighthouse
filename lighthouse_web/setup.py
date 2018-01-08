@@ -10,5 +10,5 @@ setup(
 	ext_modules  = [Extension('_rpi_ws281x', 
                                      sources=['rpi_ws281x.i'],
                                      library_dirs=['../../rpi_ws281x'],
-                                     libraries=['ws2811', 'rt'])])
+                                     libraries=['ws2811', 'rt'])]
 )
