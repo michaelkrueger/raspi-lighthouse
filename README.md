@@ -22,4 +22,67 @@ A raspi-lightpanel that is controlled by a webserver written in python.
     * ln -s ../../../rpi_ws281x/python/neopixel.py .
 	
 	
+# Autostart
+   - Add the following line to /etc/rc.local before "exit 0"
+   /home/pi/raspi-lighthouse/startup.sh
+ 
+# Installation 
+
+
+## Python Libs
+
+###Initial Setup
+
+  - sudo raspi-config
+    * Setup Hostname
+	* Change Password of user pi
+	* Change Keyboardlayout & Locale
+	* Enable ssh
+  - sudo apt-get update
+  - sudo apt-get install gcc make build-essential python-dev git scons swig python-pip
+  - Deactivate Audio (Create file)
+    sudo nano /etc/modprobe.d/snd-blacklist.conf
+	Add line: 
+	blacklist snd_bcm2835
+	
+  - Edit file 
+    sudo nano /boot/config.txt
+	Deactivate Line: dtparam=audio=on 
+	
+  - sudo reboot
+  
+### Install Python Libs
+  - cd ~
+  - git clone https://github.com/jgarff/rpi_ws281x
+  - cd rpi_ws281x/
+  Build SCons
+  - sudo scons
+  
+  Python build & Installation
+  - cd python
+  - sudo python setup.py build
+  - sudo python setup.py install
+  
+### Configure and Test
+  - cd examples
+  - nano strandtest.py
+  Set LED_COUNT=45  
+  Start the test
+  - sudo python strandtest.py
+  
+## Lighthouse Webserver
+
+### Download
+  - cd ~
+  - git clone https://github.com/michaelkrueger/raspi-lighthouse.git
+  - cd raspi-lighthouse
+  - chmod +x startup.sh
+  - cd lighthouse_web
+  - sudo python setup.py build
+  - sudo python setup.py install  
+  - sudo pip install .
+  
+  
+### Start / Register as service
+  
   
