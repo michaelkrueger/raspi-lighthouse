@@ -86,7 +86,7 @@ class Lighthouse(object):
         for i in len(zeile):
             if i<=seperator:
                 self.strip.setPixelColor(zeile[i], on_color)
-            else
+            else:
                 self.strip.setPixelColor(zeile[i], off_color)
             self.strip.show()
             time.sleep(wait_ms/1000.0)
