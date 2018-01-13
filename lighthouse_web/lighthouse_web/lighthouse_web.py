@@ -53,10 +53,10 @@ def level():
     else: zeile = ALL
     
     
-    print 'New entry was successfully posted'
     lighthouse.level(HexColor(on_color), HexColor(off_color), zeile, int(level))
     
-    redirect(url_for('show_entries'))
+    print 'New entry was successfully posted'
+    return redirect(url_for('show_entries'))
     
 @app.route('/login', methods=['GET', 'POST'])
 def login():
