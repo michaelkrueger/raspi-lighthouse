@@ -1,21 +1,7 @@
 ﻿{% extends "layout.html" %}
 {% block body %}
-    <form action="{{ url_for('set') }}" method=post class=set>
-      <dl>
-        <dt>Operation:
-        <dd><select name=op >
-				<option>aus</option>
-				<option>test</option>
-				<option>zeile1</option>
-				<option>zeile2</option>
-				<option>zeile3</option>
-			</select></dd>
-        <dt>Color:</dt>
-        <dd><input type=color value=Set name=color></dd>
-        <dd><input type=submit value=Set></dd>
-      </dl>
-    </form>
-    <form action="{{ url_for('set') }}" method=post class=set>  <input type="submit" value="Test" />  <input type="hidden" name="op" value="test"/> </form></td>
+ 
+    <form action="{{ url_for('set') }}" method=post class=set>  <input type="submit" value="Test" />  <input type="hidden" name="op" value="test"/> <input type="hidden" name="color" value="#000000"/> </form>
 	<table>	
 	<tr><td>Zeile1</td> 
 	<td><form action="{{ url_for('set') }}" method=post class=set>  <input type="submit" value="Aus" />  <input type="hidden" name="color" value="#000000"/><input type="hidden" name="op" value="zeile1"/> </form></td>
