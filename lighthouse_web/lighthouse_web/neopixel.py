@@ -82,7 +82,7 @@ class Lighthouse(object):
         self.colorWipe(color, zeile, 0)
 
     def level(self, on_color, off_color, zeile, level, wait_ms=50):
-        separator = level / 255 * len(zeile)
+        separator = level / 255.0 * len(zeile)
         print "Level: ", level, separator, len(zeile)
         for i in range(len(zeile)):
             if i<=separator:
