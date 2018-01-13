@@ -82,9 +82,10 @@ class Lighthouse(object):
         self.colorWipe(color, zeile, 0)
 
     def level(self, on_color, off_color, zeile, level, wait_ms=50):
-        seperator = level / 255 * len(zeile)
+        separator = level / 255 * len(zeile)
+		print "Level: ", level, separator, len(zeile)
         for i in range(len(zeile)):
-            if i<=seperator:
+            if i<=separator:
                 self.strip.setPixelColor(zeile[i], on_color)
             else:
                 self.strip.setPixelColor(zeile[i], off_color)
