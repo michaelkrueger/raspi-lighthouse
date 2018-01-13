@@ -150,9 +150,9 @@ class Lighthouse(object):
 
     def test(self):
         print ('Color wipe animations.')
-        self.colorWipe(ZEILE1, Color(255, 0, 0))  # Red wipe
-        self.colorWipe(ZEILE2, Color(0, 255, 0))  # Blue wipe
-        self.colorWipe(ZEILE3, Color(0, 0, 255))  # Green wipe
+        self.colorWipe(Color(255, 0, 0), ALL)  # Red wipe
+        self.colorWipe(Color(0, 255, 0), ALL)  # Blue wipe
+        self.colorWipe(Color(0, 0, 255), ALL)  # Green wipe
         print ('Theater chase animations.')
         self.theaterChase(Color(127, 127, 127))  # White theater chase
         self.theaterChase(Color(127,   0,   0))  # Red theater chase
