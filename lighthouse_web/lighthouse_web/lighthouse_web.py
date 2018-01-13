@@ -35,7 +35,7 @@ def set():
     elif op == 'zeile3':
         lighthouse.zeile(ZEILE3, HexColor(color))
     else:
-        test()
+        lighthouse.test()
         
     print 'New entry was successfully posted'
     return redirect(url_for('show_entries'))
