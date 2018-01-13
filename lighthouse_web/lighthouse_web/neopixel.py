@@ -78,10 +78,10 @@ class Lighthouse(object):
     def stop(self):
         self.strip._cleanup()
 
-    def zeile(self, zeile, color):
+    def zeile(self, color, zeile):
         self.colorWipe(color, zeile, 0)
 
-    def level(self, zeile, on_color, off_color, level, wait_ms=50):
+    def level(self, on_color, off_color, zeile, level, wait_ms=50):
         seperator = level / 255 * len(zeile)
         for i in len(zeile):
             if i<=seperator:

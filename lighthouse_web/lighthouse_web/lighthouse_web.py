@@ -29,11 +29,11 @@ def set():
     if op == 'aus':
         lighthouse.colorWipe(Color(0, 0, 0), ALL)
     elif op == 'zeile1':
-        lighthouse.zeile(ZEILE1, HexColor(color))
+        lighthouse.zeile(HexColor(color), ZEILE1)
     elif op == 'zeile2':
-        lighthouse.zeile(ZEILE2, HexColor(color))
+        lighthouse.zeile(HexColor(color), ZEILE2)
     elif op == 'zeile3':
-        lighthouse.zeile(ZEILE3, HexColor(color))
+        lighthouse.zeile(HexColor(color), ZEILE3)
     else:
         lighthouse.test()
         
@@ -50,13 +50,11 @@ def level():
     if   zeile== 'zeile1': zeile = ZEILE1
     elif zeile== 'zeile2': zeile = ZEILE2
     elif zeile== 'zeile3': zeile = ZEILE3
-    else: 
-      lighthouse.test()
-      return redirect(url_for('show_entries'))
+    else: zeile = ALL
     
     
     print 'New entry was successfully posted'
-    lighthouse.level(zeile, HexColor(on_color), HexColor(off_color), level)
+    lighthouse.level(HexColor(on_color), HexColor(off_color), zeile, level)
     
     redirect(url_for('show_entries'))
     
