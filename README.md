@@ -1,11 +1,17 @@
 # raspi-lighthouse
+
 A raspi-lightpanel that is controlled by a webserver written in python.
 
 # Running
-  - cmd>  cd lighthouse_web/lighthouse_web
-  - cmd>  export FLASK_APP="lighthouse_web"
-  - cmd>  flask run --host=0.0.0.0
+
+  - cmd>  ./startup.sh
   
+A Webserver will start and listen on Port 5000:
+![Webserver](/build-instructions/Web-Frontend.png)
+
+# Build you own lighthouse
+ 
+[The Build-Instructions are located here](/build-instructions/readme.md)
 
 # Dependencies
 
@@ -23,6 +29,7 @@ A raspi-lightpanel that is controlled by a webserver written in python.
 	
 	
 # Autostart
+
    - Add the following line to /etc/rc.local before "exit 0"
    /home/pi/raspi-lighthouse/startup.sh
  
@@ -52,6 +59,7 @@ A raspi-lightpanel that is controlled by a webserver written in python.
   - sudo reboot
   
 ### Install Python Libs
+
   - cd ~
   - git clone https://github.com/jgarff/rpi_ws281x
   - cd rpi_ws281x/
@@ -64,6 +72,7 @@ A raspi-lightpanel that is controlled by a webserver written in python.
   - sudo python setup.py install
   
 ### Configure and Test
+
   - cd examples
   - nano strandtest.py
   Set LED_COUNT=45  
@@ -73,6 +82,7 @@ A raspi-lightpanel that is controlled by a webserver written in python.
 ## Lighthouse Webserver
 
 ### Download
+
   - cd ~
   - git clone https://github.com/michaelkrueger/raspi-lighthouse.git
   - cd raspi-lighthouse
