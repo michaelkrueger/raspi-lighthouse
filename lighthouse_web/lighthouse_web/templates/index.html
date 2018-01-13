@@ -47,4 +47,30 @@
 	
 	</table>
 	
+	<form action="{{ url_for('level') }}" method=post class=set>  <input type="submit" value="Level" />  
+			<select name=zeile >
+				<option>alle</option>
+				<option>zeile1</option>
+				<option>zeile2</option>
+				<option>zeile3</option>
+			</select>	
+			<select name=on_color >
+				<option>#000000</option>
+				<option>#FF0000</option>
+				<option>#00FF00</option>
+				<option selected=true>#0000FF</option>
+				<option>#FFFF00</option>
+				<option>#FFFFFF</option>
+			</select>
+			<select name=off_color >
+				<option>#000000</option>
+				<option>#FF0000</option>
+				<option>#00FF00</option>
+				<option>#0000FF</option>
+				<option selected=true>#FFFF00</option>
+				<option>#FFFFFF</option>
+			</select>
+			<input name=level type="range" min="0" max="255" value="30"/>			
+	</form>
+	
 {% endblock %}
