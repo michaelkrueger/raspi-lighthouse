@@ -15,7 +15,8 @@
         <dd><input type=submit value=Set></dd>
       </dl>
     </form>
-	<table>
+    <form action="{{ url_for('set') }}" method=post class=set>  <input type="submit" value="Test" />  <input type="hidden" name="op" value="test"/> </form></td>
+	<table>	
 	<tr><td>Zeile1</td> 
 	<td><form action="{{ url_for('set') }}" method=post class=set>  <input type="submit" value="Aus" />  <input type="hidden" name="color" value="#000000"/><input type="hidden" name="op" value="zeile1"/> </form></td>
 	<td><form action="{{ url_for('set') }}" method=post class=set>  <input type="submit" value="Blau" />  <input type="hidden" name="color" value="#0000FF"/><input type="hidden" name="op" value="zeile1"/> </form></td>
