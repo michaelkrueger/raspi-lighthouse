@@ -110,7 +110,7 @@ class Lighthouse(object):
                 for i in range(0, self.strip.numPixels(), 3):
                     self.strip.setPixelColor(i+q, 0)
 
-    def wheel(pos):
+    def wheel(self, pos):
         """Generate rainbow colors across 0-255 positions."""
         if pos < 85:
             return Color(pos * 3, 255 - pos * 3, 0)
@@ -125,7 +125,7 @@ class Lighthouse(object):
         """Draw rainbow that fades across all pixels at once."""
         for j in range(256*iterations):
             for i in range(self.strip.numPixels()):
-                self.strip.setPixelColor(i, wheel((i+j) & 255))
+                self.strip.setPixelColor(i, self.wheel((i+j) & 255))
             self.strip.show()
             time.sleep(wait_ms/1000.0)
 
@@ -133,7 +133,7 @@ class Lighthouse(object):
         """Draw rainbow that uniformly distributes itself across all pixels."""
         for j in range(256*iterations):
             for i in range(self.strip.numPixels()):
-                self.strip.setPixelColor(i, wheel((int(i * 256 / self.strip.numPixels()) + j) & 255))
+                self.strip.setPixelColor(i, self.wheel((int(i * 256 / self.strip.numPixels()) + j) & 255))
             self.strip.show()
             time.sleep(wait_ms/1000.0)
 
@@ -142,7 +142,7 @@ class Lighthouse(object):
         for j in range(256):
             for q in range(3):
                 for i in range(0, self.strip.numPixels(), 3):
-                    self.strip.setPixelColor(i+q, wheel((i+j) % 255))
+                    self.strip.setPixelColor(i+q, self.wheel((i+j) % 255))
                 self.strip.show()
                 time.sleep(wait_ms/1000.0)
                 for i in range(0, self.strip.numPixels(), 3):
@@ -150,9 +150,9 @@ class Lighthouse(object):
 
     def test(self):
         print ('Color wipe animations.')
-        self.colorWipe(ALL, Color(255, 0, 0))  # Red wipe
-        self.colorWipe(ALL, Color(0, 255, 0))  # Blue wipe
-        self.colorWipe(ALL, Color(0, 0, 255))  # Green wipe
+        self.colorWipe(ZEILE1, Color(255, 0, 0))  # Red wipe
+        self.colorWipe(ZEILE2, Color(0, 255, 0))  # Blue wipe
+        self.colorWipe(ZEILE3, Color(0, 0, 255))  # Green wipe
         print ('Theater chase animations.')
         self.theaterChase(Color(127, 127, 127))  # White theater chase
         self.theaterChase(Color(127,   0,   0))  # Red theater chase
