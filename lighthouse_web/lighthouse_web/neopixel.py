@@ -161,7 +161,7 @@ class Lighthouse(object):
         self.rainbow()
         self.rainbowCycle()
         self.theaterChaseRainbow()
-		self.colorWipe(Color(0, 0, 0), ALL)
+        self.colorWipe(Color(0, 0, 0), ALL)
 
 
 class Adafruit_NeoPixel(object):
