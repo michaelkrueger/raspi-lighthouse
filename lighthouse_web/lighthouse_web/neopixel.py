@@ -83,7 +83,7 @@ class Lighthouse(object):
 
     def level(self, on_color, off_color, zeile, level, wait_ms=50):
         separator = level / 255 * len(zeile)
-		print "Level: ", level, separator, len(zeile)
+        print "Level: ", level, separator, len(zeile)
         for i in range(len(zeile)):
             if i<=separator:
                 self.strip.setPixelColor(zeile[i], on_color)
