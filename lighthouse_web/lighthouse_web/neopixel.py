@@ -68,47 +68,29 @@ class _LED_Data(object):
         else:
             return ws.ws2811_led_set(self.channel, pos, value)
 
-class test_Lighthouse(object):
 
-    def __init__(self):
-        print "INIT"
-        
-    def zeile_1(self, color):
-        print "Zeile1"
-        self.colorWipe(color, range(0,15), 0)
-        
-    def zeile_2(self, color):
-        print "Zeile2"
-        self.colorWipe(color, range(15,30),0)
-        
-    def zeile_3(self, color):
-        print "Zeile3"
-        self.colorWipe(color, range(30,45),0)
-        
-    def colorWipe(self, color, leds, wait_ms=50):
-        print "Colorwipe: %s %s", color, leds
-        
-    def test(self):
-        print "Test"
-            
 class Lighthouse(object):
 
     def __init__(self):
         self.strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
         self.strip.begin()
-    
+
     def stop(self):
         self.strip._cleanup()
-    
-    def zeile_1(self, color):
-        self.colorWipe(color, ZEILE1, 0)
-        
-    def zeile_2(self, color):
-        self.colorWipe(color, ZEILE2, 0)
-        
-    def zeile_3(self, color):
-        self.colorWipe(color, ZEILE3, 0)
-        
+
+    def zeile(self, zeile, color):
+        self.colorWipe(color, zeile, 0)
+
+    def level(self, zeile, on_color, off_color, level, wait_ms=50):
+        seperator = level / 255 * len(zeile)
+        for i in len(zeile):
+            if i<=seperator:
+                self.strip.setPixelColor(zeile[i], on_color)
+            else
+                self.strip.setPixelColor(zeile[i], off_color)
+            self.strip.show()
+            time.sleep(wait_ms/1000.0)
+
     # Define functions which animate LEDs in various ways.
     def colorWipe(self, color, leds, wait_ms=50):
         """Wipe color across display a pixel at a time."""
@@ -168,19 +150,19 @@ class Lighthouse(object):
 
     def test(self):
         print ('Color wipe animations.')
-        self.colorWipe(self.strip, ALL, Color(255, 0, 0))  # Red wipe
-        self.colorWipe(self.strip, ALL, Color(0, 255, 0))  # Blue wipe
-        self.colorWipe(self.strip, ALL, Color(0, 0, 255))  # Green wipe
+        self.colorWipe(ALL, Color(255, 0, 0))  # Red wipe
+        self.colorWipe(ALL, Color(0, 255, 0))  # Blue wipe
+        self.colorWipe(ALL, Color(0, 0, 255))  # Green wipe
         print ('Theater chase animations.')
-        self.theaterChase(self.strip, Color(127, 127, 127))  # White theater chase
-        self.theaterChase(self.strip, Color(127,   0,   0))  # Red theater chase
-        self.theaterChase(self.strip, Color(  0,   0, 127))  # Blue theater chase
+        self.theaterChase(Color(127, 127, 127))  # White theater chase
+        self.theaterChase(Color(127,   0,   0))  # Red theater chase
+        self.theaterChase(Color(  0,   0, 127))  # Blue theater chase
         print ('Rainbow animations.')
-        self.rainbow(self.strip)
-        self.rainbowCycle(self.strip)
-        self.theaterChaseRainbow(self.strip)
-        
-    
+        self.rainbow()
+        self.rainbowCycle()
+        self.theaterChaseRainbow()
+
+
 class Adafruit_NeoPixel(object):
     def __init__(self, num, pin, freq_hz=800000, dma=5, invert=False,
             brightness=255, channel=0, strip_type=ws.WS2811_STRIP_RGB):

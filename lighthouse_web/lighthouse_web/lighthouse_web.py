@@ -29,17 +29,36 @@ def set():
     if op == 'aus':
         lighthouse.colorWipe(Color(0, 0, 0), ALL)
     elif op == 'zeile1':
-        lighthouse.zeile_1(HexColor(color))
+        lighthouse.zeile(ZEILE1, HexColor(color))
     elif op == 'zeile2':
-        lighthouse.zeile_2(HexColor(color))
+        lighthouse.zeile(ZEILE2, HexColor(color))
     elif op == 'zeile3':
-        lighthouse.zeile_3(HexColor(color))
+        lighthouse.zeile(ZEILE3, HexColor(color))
     else:
-        lighthouse.test()
+        test()
         
     print 'New entry was successfully posted'
     return redirect(url_for('show_entries'))
 
+@app.route('/level', methods=['POST'])
+def level():
+    zeile = request.form['zeile']
+    level = request.form['level']
+    on_color  = request.form['on_color']
+    off_color  = request.form['off_color']
+    
+    if   zeile== 'zeile1': zeile = ZEILE1
+    elif zeile== 'zeile2': zeile = ZEILE2
+    elif zeile== 'zeile3': zeile = ZEILE3
+    else: 
+      lighthouse.test()
+      return redirect(url_for('show_entries'))
+    
+    
+    print 'New entry was successfully posted'
+    lighthouse.level(zeile, HexColor(on_color), HexColor(off_color), level)
+    
+    redirect(url_for('show_entries'))
     
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -62,4 +81,4 @@ def logout():
     return redirect(url_for('show_entries'))
 	
 if __name__ == '__main__':
-    app.run('0.0.0.0')	
+    app.run('0.0.0.0')    
