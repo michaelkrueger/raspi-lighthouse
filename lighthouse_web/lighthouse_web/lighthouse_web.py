@@ -54,7 +54,7 @@ def level():
     
     
     print 'New entry was successfully posted'
-    lighthouse.level(HexColor(on_color), HexColor(off_color), zeile, level)
+    lighthouse.level(HexColor(on_color), HexColor(off_color), zeile, int(level))
     
     redirect(url_for('show_entries'))
     
