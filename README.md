@@ -11,7 +11,7 @@ A Webserver will start and listen on Port 5000:
 
 # Build you own lighthouse
  
-[The Build-Instructions are located here](/build-instructions/readme.md)
+[The Build-Instructions are located here](build-instructions/README.md)
 
 # Dependencies
 
